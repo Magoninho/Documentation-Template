@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+* {
+	box-sizing: border-box;
+	padding: 0;
+}
+
+
+.menu li {
+	display: inline-block;
+}
+.menu {
+	list-style: none;
+	margin-left: 0%;
+
+}
+
+.menu a {
+	color: white;
+	font-size: 16pt;
+
+}
+.menu a:hover {
+	color: yellow;
+	font-size: 16pt;
+}
+
+
+
+.title {
+	text-align: center;
+	background-color: mediumturquoise;
+	color: white;
+	padding: 10px;
+}
+
+.title h1 {
+	text-shadow: 2px 2px 2px black;
+}
+
+
+.page-content {
+	text-align: left;
+	color: black;
+	padding: 20px;
+}
+
+.content {
+	margin: 15px;
+}
+
+
+.right {
+	float: right;
+	width: 72%;
+
+}
+
+.left {
+	float: left;
+	width: 25%;
+	padding: 10px;
+	background-color: aliceblue;
+	overflow: hidden;
+}
+
+.left h3 {
+	font-family: 'Roboto Mono';
+	color: blue;
+	font-weight: bolder;
+}
+
+.left a {
+	text-decoration: none;
+}
+
+.left h3:hover {
+	font-family: 'Roboto Mono';
+	color: blue;
+	font-weight: bolder;
+	text-decoration: underline;
+}
+
+
+.toc_list li {
+	margin-top: 5px;
+	list-style-type: none;
+
+}
+
+.toc_list li a {
+	color: black;
+	text-decoration: none;
+	transition: all 0.1s;
+	text-decoration: underline;
+	display: block;
+	line-height: 20px;
+	padding: 10px;
+}
+
+
+.toc_list li a:hover {
+	color: darkorange;
+}
+
+
+.toc_list {
+	padding: 0;
+
+}
+
+.selected {
+	background-color: aquamarine;
+}
+
+
+.content-btn {
+	text-align: center;
+	display: none;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+
+.formula {
+	font-size: xx-large;
+}
+
+
+.article {
+	width: 60%;
+	margin: auto;
+}
+
+
+@media (max-width: 1283px) {
+	body {
+		width: auto;
+		
+	}
+	.article {
+		width: 100%;
+		margin: auto;
+	}
+
+	
+}
+
+@media (max-width: 913px) {
+	
+	.content-btn {
+		display: block;
+	}
+
+	.left {
+		display: none;
+	}
+
+	.right {
+		width: 100%;
+	}
+}
+
+@media print {
+	.title {
+		display: none;
+	}
+	.btn {
+		display: none;
+	}
+}
