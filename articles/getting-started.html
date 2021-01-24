@@ -21,14 +21,14 @@
                 style="float: left; overflow: hidden; width: 100px;"><span id="docname"></span></h1>
         <header>
             <ul class="menu">
-                <li><a href="../">Home</a></li>
+                <li><a href="../index.html">Home</a></li>
                 <li><a href="#">About</a></li>
                 <li><a href="#">Credits</a></li>
                 <li><a href="https://github.com/Magoninho" target="_blank">GitHub</a></li>
             </ul>
         </header>
     </div>
-    <a href="../"><button style="margin: 10px;" class="btn btn-danger">&lt;&lt; Back</button></a>
+    <a href="../index.html"><button style="margin: 10px;" class="btn btn-danger">&lt;&lt; Back</button></a>
     <div class="content">
 
         <div class="article">
@@ -39,7 +39,8 @@
                 <h1 id="introduction">Introduction</h1>
                 <hr>
                 <p>
-                    This is a fully functional, responsive and printable documentation. Try pressing CTRL + P to see how to page
+                    This is a fully functional, responsive and printable documentation. Try pressing CTRL + P to see how
+                    to page
                     changes when you try to print it. <br>
                     It's open source and anyone can use it for free.
                     Let's get started by the first thing that you want to do: creating new pages. Which is very simple
@@ -53,9 +54,11 @@
                     <br><br>
                     Let's first take a look at the folder structure of the project <br><br>
                     <img src="../media/images/folders.PNG" alt="folder structure" width="400px"
-                    style="float: left; padding-right: 20px;">
-                    At the root directory, we have the <i><b>index.html</b></i>, which is the home page of the website. Also, we have
-                    a <i><b>contents.html</b></i> page, that is basically a page that contains the table of contents (DON'T DELETE
+                        style="float: left; padding-right: 20px;">
+                    At the root directory, we have the <i><b>index.html</b></i>, which is the home page of the website.
+                    Also, we have
+                    a <i><b>contents.html</b></i> page, that is basically a page that contains the table of contents
+                    (DON'T DELETE
                     IT).<br><br>
                     The folder hierarchy looks like this:
                 <pre style="font-size: x-large;">
@@ -90,7 +93,9 @@
                     To create a new page, you have to copy and paste the <i><b>getting-started.html</b></i>, <br>
                     <img src="../media/images/steps/step1.PNG" alt="step 1">
                     <img src="../media/images/steps/step2.PNG" alt="step 2"><br>
-                    delete the things that are inside of a div that belongs to the <code> page-content</code> class: <br> <code>&lt;div class="page-content"><br>...(delete all things between this div)... <br>&lt;/div></code>
+                    delete the things that are inside of a div that belongs to the <code> page-content</code> class:
+                    <br>
+                    <code>&lt;div class="page-content"><br>...(delete all things between this div)... <br>&lt;/div></code>
                 </p>
 
                 <p>
@@ -102,8 +107,9 @@
                 <h2>Adding the new page to the <a href="../contents.html">contents</a> page</h2>
                 <hr>
                 <p>
-                    Basically, the contents page works because of the <i><b>content.js</b></i> file on the js folder. Looking inside of the script we can see how it works
-<pre class="prettyprint lang-js">
+                    Basically, the contents page works because of the <i><b>content.js</b></i> file on the js folder.
+                    Looking inside of the script we can see how it works
+                <pre class="prettyprint lang-js">
 var contents = [
     // chapter 1
     // if you want to create another chaper, create another array after the comma
@@ -145,14 +151,17 @@ for (let i = 0; i < contents.length; i++) {
                     The contents variable is an array that contains arrays inside of it. But what does this mean?
                     <br>
                     <img src="../media/images/steps/content.PNG" style="border: 1px solid;"><br>
-                    If you take a look at the contents page, you will see that the "Getting Started" appears as chapter and the "Introduction" and "Creating new pages" appears as subcontents of the chapter 1.
+                    If you take a look at the contents page, you will see that the "Getting Started" appears as chapter
+                    and the "Introduction" and "Creating new pages" appears as subcontents of the chapter 1.
                 </p>
                 <p>
-                    What we can understand by this is that the arrays inside the <code>contents</code> array represents chapters, and the items inside of it will be the the contents of the chapter. But notice that the first item of the array will be always over the others.
+                    What we can understand by this is that the arrays inside the <code>contents</code> array represents
+                    chapters, and the items inside of it will be the the contents of the chapter. But notice that the
+                    first item of the array will be always over the others.
                 </p>
                 <p>
                     Let's create a new chapter by adding a new array to the <code>contents</code> array
-                    <pre class="prettyprint lang-js">
+                <pre class="prettyprint lang-js">
 var contents = [
     [
         "Getting Started",
@@ -168,9 +177,10 @@ var contents = [
                 </p>
                 <p>
                     It should be ready to go, right? No. <br>
-                    If you look at the <a href="../contents.html">contents</a> page, you will see that the new chapter is not there yet. <br>
+                    If you look at the <a href="../contents.html">contents</a> page, you will see that the new chapter
+                    is not there yet. <br>
                     Because now is time to take a look at the variable below.
-                    <pre class="prettyprint lang-js">
+                <pre class="prettyprint lang-js">
 var contentsLinks = [
     [
         "articles/getting-started.html",
@@ -182,9 +192,12 @@ var contentsLinks = [
                     </pre>
                 </p>
                 <p>
-                    This variable works as the same way the <code>contents</code>, so, you can add new chapters and contents, but this variable is to declare the links for each content declared on the <code>contents</code> array. And you need to put the links in order. <b>If you create a new chapter, you have to create here as well.</b> <br>
+                    This variable works as the same way the <code>contents</code>, so, you can add new chapters and
+                    contents, but this variable is to declare the links for each content declared on the
+                    <code>contents</code> array. And you need to put the links in order. <b>If you create a new chapter,
+                        you have to create here as well.</b> <br>
                     Let's go ahead and create it.
-                    <pre class="prettyprint lang-js">
+                <pre class="prettyprint lang-js">
 var contentsLinks = [
     [
         "articles/getting-started.html",
@@ -199,11 +212,12 @@ var contentsLinks = [
                     </pre>
                 </p>
                 <p>
-                    And that's all you need to do! The page will appear at the <a href="../contents.html">contents</a> page.
+                    And that's all you need to do! The page will appear at the <a href="../contents.html">contents</a>
+                    page.
                 </p>
                 <p>
                     If you want, you can create the subcontents by adding then inside the array
-                    <pre class="prettyprint lang-js">
+                <pre class="prettyprint lang-js">
 var contents = [
     [
         "Getting Started",
