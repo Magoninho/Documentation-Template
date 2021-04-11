@@ -28,14 +28,17 @@
             </ul>
         </header>
     </div>
-    <a href="../index.html"><button style="margin: 10px;" class="btn btn-danger">&lt;&lt; Back</button></a>
     <div class="content">
 
         <div class="article">
-
-
-
             <div class="page-content">
+                <div class="back-next">
+                    <br><br>
+                    <button type="button" class="btn btn-danger" onclick="window.history.back()">Back</button>
+                    <a href="example-page.html"><button type="button" class="btn btn-success">Next</button></a>
+                    <br><br>
+                </div>
+
                 <h1 id="introduction">Introduction</h1>
                 <hr>
                 <p>
@@ -255,6 +258,12 @@ var contentsLinks = [
                 <h1>Result</h1>
                 <hr>
                 <img src="../media/images/steps/chapter2.PNG" alt="result" style="border: 1px solid;">
+
+                <div class="back-next">
+                    <br><br>
+                    <button type="button" class="btn btn-danger" onclick="window.history.back()">Back</button>
+                    <a href="example-page.html"><button type="button" class="btn btn-success">Next</button></a>
+                </div>
             </div>
         </div>
     </div>
