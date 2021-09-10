@@ -2,6 +2,10 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
+@font-face {
+	font-family: Nunito;
+	src: url(Nunito-Regular.ttf);
+}
 
 * {
 	box-sizing: border-box;
@@ -12,7 +16,7 @@ p {
 	font-size: large;
 	text-align: justify;
 	font-family: Avenir, sans-serif;
-	font-family: 'Open Sans', sans-serif;
+	font-family: Nunito, Verdana, sans-serif;
 }
 
 .menu li {

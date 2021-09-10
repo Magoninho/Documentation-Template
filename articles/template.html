@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Documentation Template</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../styles/style.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+</head>
+
+<body>
+
+
+    <div class="title">
+
+        <h1><img src="../media/images/logo.jpg" alt="documentation image"
+                style="float: left; overflow: hidden; width: 100px;"><span id="docname"></span></h1>
+        <header>
+            <ul class="menu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Credits</a></li>
+                <li><a href="https://github.com/Magoninho" target="_blank">GitHub</a></li>
+            </ul>
+        </header>
+    </div>
+    <div class="content">
+
+        <div class="article">
+            <div class="page-content">
+                <div class="back-next">
+                    <br><br>
+                    <button type="button" class="btn btn-danger" onclick="window.history.back()">Back</button>
+                    <a href="example-page.html"><button type="button" class="btn btn-success">Next</button></a>
+                    <br><br>
+                </div>
+
+                <h1 id="introduction">Introduction</h1>
+                <hr>
+                <p>
+                    This is a fully functional, responsive and printable documentation. Try pressing CTRL + P to see how
+                    to page
+                    changes when you try to print it. <br>
+                    It's open source and anyone can use it for free.
+                    Let's get started by the first thing that you want to do: creating new pages. Which is very simple
+
+                </p>
+                <h1 id="creating-pages">Creating new pages</h1>
+                <hr>
+                <h2>Understanding the folder structure</h2>
+                <p>
+                    For this will be showing on Visual Studio Code, but you can use any editor you want.
+                    <br><br>
+                    Let's first take a look at the folder structure of the project <br><br>
+                    <img src="../media/images/folders.PNG" alt="folder structure" width="400px"
+                        style="float: left; padding-right: 20px;">
+                    At the root directory, we have the <i><b>index.html</b></i>, which is the home page of the website.
+                    Also, we have
+                    a <i><b>contents.html</b></i> page, that is basically a page that contains the table of contents
+                    (DON'T DELETE
+                    IT).<br><br>
+                    The folder hierarchy looks like this:
+                <pre style="font-size: x-large;">
+├───articles
+├───js
+├───media
+│ ├───images
+│ └───videos
+└───styles
+</pre>
+                </p>
+                <p>
+                    The articles folder is where all the articles are located. This page where you are right now is in
+                    <i><b>articles/getting-started.html</b></i><br>
+                    That <i><b>index.html</b></i> is just a 404 error page.
+                </p>
+                <p>
+                    Moving foward, we have the js folder. There, we have some scripts, such as the
+                    <i><b>contents.js</b></b></i> and the <i><b>documentation-name.js</b></b></i>
+                    These two files can't be deleted, because if you do, the pages won't work properly.
+                    We are going to take a look at what these scripts do in the future.
+                </p>
+                <p>
+                    Now we have the media folder. It's self explanatory. It's where all the images and videos you want
+                    to use will be located
+                </p>
+                <p>
+                    The styles folder contains the main CSS file that is used in all the pages. Feel free to modify and
+                    change colors of the background, font sizes, font faces etc;
+                </p>
+                <p>
+                    To create a new page, you have to copy and paste the <i><b>getting-started.html</b></i>, <br>
+                    <img src="../media/images/steps/step1.PNG" alt="step 1">
+                    <img src="../media/images/steps/step2.PNG" alt="step 2"><br>
+                    delete the things that are inside of a div that belongs to the <code> page-content</code> class:
+                    <br>
+                    <code>&lt;div class="page-content"><br>...(delete all things between this div)... <br>&lt;/div></code>
+                </p>
+
+                <p>
+                    Now, you can write whatever you want insine de page-content div <br>
+                    <img src="../media/images/steps/step3.PNG" alt="step 3">
+                </p>
+
+
+                <h2>Adding the new page to the <a href="../contents.html">contents</a> page</h2>
+                <hr>
+                <p>
+                    Basically, the contents page works because of the <i><b>content.js</b></i> file on the js folder.
+                    Looking inside of the script we can see how it works
+                <pre class="prettyprint lang-js">
+var contents = [
+    // chapter 1
+    // if you want to create another chaper, create another array after the comma
+    [
+        "Getting Started",
+        "Introduction",
+        "Creating new pages",
+    ],
+    
+];
+
+var contentsLinks = [
+    [
+        "articles/getting-started.html",
+        "articles/getting-started.html#introduction",
+        "articles/getting-started.html#creating-pages",
+    ],
+];
+
+
+for (let i = 0; i < contents.length; i++) {
+    for (let content = 0; content < contents[i].length; content++) {
+        
+        if (content == 0 && contentsLinks[i][content]) {
+            
+            document.getElementById("contentsarray").innerHTML +=
+                `&lt;li>&lt;a href='${contentsLinks[i][content]}'> ${(i + 1)}.${content} ${(contents[i][content])}&lt;/a>&lt;/li>`; 
+            
+        } else if (content != 0 && contentsLinks[i][content]) {
+            document.getElementById("contentsarray").innerHTML +=
+                `&lt;ul>&lt;li>&lt;a href='${contentsLinks[i][content]}'> ${(i + 1)}.${content} ${contents[i][content]}&lt;/a>&lt;/li>&lt;/ul>`;
+        }
+        
+    }
+}
+</pre>
+                </p>
+                <p>
+                    The contents variable is an array that contains arrays inside of it. But what does this mean?
+                    <br>
+                    <img src="../media/images/steps/content.PNG" style="border: 1px solid;"><br>
+                    If you take a look at the contents page, you will see that the "Getting Started" appears as chapter
+                    and the "Introduction" and "Creating new pages" appears as subcontents of the chapter 1.
+                </p>
+                <p>
+                    What we can understand by this is that the arrays inside the <code>contents</code> array represents
+                    chapters, and the items inside of it will be the the contents of the chapter. But notice that the
+                    first item of the array will be always over the others.
+                </p>
+                <p>
+                    Let's create a new chapter by adding a new array to the <code>contents</code> array
+                <pre class="prettyprint lang-js">
+var contents = [
+    [
+        "Getting Started",
+        "Introduction",
+        "Creating new pages",
+    ],
+    [
+        "Example chapter"
+    ]
+    
+];
+                    </pre>
+                </p>
+                <p>
+                    It should be ready to go, right? No. <br>
+                    If you look at the <a href="../contents.html">contents</a> page, you will see that the new chapter
+                    is not there yet. <br>
+                    Because now is time to take a look at the variable below.
+                <pre class="prettyprint lang-js">
+var contentsLinks = [
+    [
+        "articles/getting-started.html",
+        "articles/getting-started.html#introduction",
+        "articles/getting-started.html#creating-pages",
+    ],
+    
+];                        
+                    </pre>
+                </p>
+                <p>
+                    This variable works as the same way the <code>contents</code>, so, you can add new chapters and
+                    contents, but this variable is to declare the links for each content declared on the
+                    <code>contents</code> array. And you need to put the links in order. <b>If you create a new chapter,
+                        you have to create here as well.</b> <br>
+                    Let's go ahead and create it.
+                <pre class="prettyprint lang-js">
+var contentsLinks = [
+    [
+        "articles/getting-started.html",
+        "articles/getting-started.html#introduction",
+        "articles/getting-started.html#creating-pages",
+    ],
+    [
+        "articles/example-page.html"
+    ]
+    
+];                        
+                    </pre>
+                </p>
+                <p>
+                    And that's all you need to do! The page will appear at the <a href="../contents.html">contents</a>
+                    page.
+                </p>
+                <p>
+                    If you want, you can create the subcontents by adding then inside the array
+                <pre class="prettyprint lang-js">
+var contents = [
+    [
+        "Getting Started",
+        "Introduction",
+        "Creating new pages",
+    ],
+    [
+        "Example chapter",
+        "Example subcontent 1",
+        "Example subcontent 2",
+        "Example subcontent 3",
+    ]
+    
+];
+
+var contentsLinks = [
+    [
+        "articles/getting-started.html",
+        "articles/getting-started.html#introduction",
+        "articles/getting-started.html#creating-pages",
+    ],
+    [
+        "articles/example-page.html",
+        "#",
+        "#",
+        "#",
+    ]
+
+];
+                    </pre>
+                </p>
+                <p>
+                    Here, I didn't specified a link, so I just put a # <br>
+                </p>
+                <h1>Result</h1>
+                <hr>
+                <img src="../media/images/steps/chapter2.PNG" alt="result" style="border: 1px solid;">
+
+                <div class="back-next">
+                    <br><br>
+                    <button type="button" class="btn btn-danger" onclick="window.history.back()">Back</button>
+                    <a href="example-page.html"><button type="button" class="btn btn-success">Next</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- other scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"
+        integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js"
+        integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+    <script src="../js/documentation-name.js"></script>
+</body>
+
+</html>
